@@ -31,10 +31,18 @@ const musicData = {
         
         {title:"Rap God", img:"https://i.postimg.cc/HnpyGDpq/GLORY-Hindi-2024-20250117161048-500x500.jpg", artist:"Yo Yo honey Singh", audio:"https://files.catbox.moe/ayfha4.mp3"},
 
+{title:"Trend", img:"https://i.postimg.cc/fywVrKYR/s2.webp", artist:"Sidhu Moose Wala", audio:"https://files.catbox.moe/6mix2n.mp3"}
+
+    ],
+
 mixesForYou:[
         {title:"Mix 1", img:"https://picsum.photos/200?random=4", artist:"Artist G", audio:"https://www.soundhelix.com/examples/mp3/SoundHelix-Song-4.mp3"},
- {title:"Mix 1", img:"https://picsum.photos/200?random=4", artist:"Artist G", audio:"https://www.soundhelix.com/examples/mp3/SoundHelix-Song-4.mp3"},
-  {title:"Mix 1", img:"https://picsum.photos/200?random=4", artist:"Artist G", audio:"https://www.soundhelix.com/examples/mp3/SoundHelix-Song-4.mp3"}
+
+ {title:"Mix 2", img:"https://picsum.photos/200?random=4", artist:"Artist G", audio:"https://www.soundhelix.com/examples/mp3/SoundHelix-Song-4.mp3"},
+
+  {title:"Mix 3", img:"https://picsum.photos/200?random=4", artist:"Artist G", audio:"https://www.soundhelix.com/examples/mp3/SoundHelix-Song-4.mp3"}
+  
+  ],
  
  artists:[
         {name:"Artist 1", img:"https://picsum.photos/200?random=6"},
