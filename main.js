@@ -29,7 +29,10 @@ const musicData = {
         
         {title:"Sikka", img:"https://i.postimg.cc/bJfnTS4Y/Sikka-Punjabi-2025-20250903134326-500x500.jpg", artist:"Yo Yo honey Singh", audio:"https://files.catbox.moe/in01su.mp3"},
         
-        {title:"Rap God", img:"https://i.postimg.cc/HnpyGDpq/GLORY-Hindi-2024-20250117161048-500x500.jpg", artist:"Yo Yo honey Singh", audio:"https://files.catbox.moe/ayfha4.mp3"}
+        {title:"Rap God", img:"https://i.postimg.cc/HnpyGDpq/GLORY-Hindi-2024-20250117161048-500x500.jpg", artist:"Yo Yo honey Singh", audio:"https://files.catbox.moe/ayfha4.mp3"},
+
+        {title:"Rap God", img:"https://i.postimg.cc/fywVrKYR/s2.webp", artist:"Sidhu moosw wala", audio:"https://files.catbox.moe/6mix2n.mp3"}
+        
         
     ],
     mixesForYou:[
@@ -481,4 +484,5 @@ document.addEventListener('keydown', function(e) {
 });
 
 // Initialize navigation state
+
 window.history.replaceState({page: 'home'}, '', '');
