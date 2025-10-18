@@ -22,7 +22,23 @@ body{
 }
 *{-webkit-tap-highlight-color:transparent;outline:none;}
 :focus{outline:none!important;}
-header{display:flex;justify-content:space-between;align-items:center;padding:20px;position:relative;padding-top:max(20px,env(safe-area-inset-top));}
+
+/* Header को default hidden रखें */
+header{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:20px;
+    position:relative;
+    padding-top:max(50px,env(safe-area-inset-top));
+    display: none; /* Default hidden */
+}
+
+/* Header को सिर्फ home page पर show करने के लिए class */
+header.show-header {
+    display: flex; /* सिर्फ home page पर show होगा */
+}
+
 .greeting{display:flex;flex-direction:column;}
 .greeting .username{font-family:'Roboto Slab',serif;font-size:0.9rem;color:#fff;font-weight:400;}
 .greeting .time-greeting{font-size:1.4rem;font-weight:700;margin-top:3px;}
@@ -30,7 +46,7 @@ header{display:flex;justify-content:space-between;align-items:center;padding:20p
 .profile-container{display:flex;align-items:center;gap:10px;}
 .profile{width:38px;height:38px;border-radius:50%;overflow:hidden;cursor:pointer;border:none;background:#333;display:flex;justify-content:center;align-items:center;}
 .profile img{width:100%;height:100%;object-fit:cover;}
-.notification-icon{font-size:1.4rem;color:#ff4081;cursor:pointer;}
+.notification-icon{font-size:1.4rem;color:#ffffff;cursor:pointer;} /* Changed from #ff4081 to #ffffff */
 .content{flex:1;padding:0 20px 120px;overflow-y:auto;padding-top:env(safe-area-inset-top);scrollbar-width:none;}
 .content::-webkit-scrollbar{display:none;}
 
@@ -69,14 +85,14 @@ header{display:flex;justify-content:space-between;align-items:center;padding:20p
 .artist-card h4{font-size:0.9rem;text-align:center;}
 
 /* Library Page Styles */
-.library-page{display:none;padding-top:7px; padding-bottom: 40px;}
+.library-page{display:none;padding-top:35px; padding-bottom: 40px;}
 .library-header{margin-bottom:25px;}
 .library-header h1{font-size:1.8rem;font-weight:700;margin-bottom:10px;}
 .library-header p{color:#aaa;font-size:0.9rem;}
 .library-filters{display:flex;gap:10px;margin-bottom:20px;overflow-x:auto;padding-bottom:10px;scrollbar-width:none;}
 .library-filters::-webkit-scrollbar{display:none;}
 .filter-btn{padding:8px 16px;background:rgba(255,255,255,0.1);border:none;border-radius:20px;color:#fff;font-size:0.85rem;cursor:pointer;white-space:nowrap;transition:all 0.3s ease;}
-.filter-btn.active{background:#ff4081;color:#fff;}
+.filter-btn.active{background:#ffffff;color:#000;} /* Changed from #ff4081 to #ffffff */
 .library-songs-list{display:flex;flex-direction:column;gap:10px;}
 .library-song-item{display:flex;align-items:center;gap:15px;padding:12px;border-radius:10px;cursor:pointer;transition:background 0.3s ease;}
 .library-song-item:hover{background:rgba(255,255,255,0.1);}
@@ -86,16 +102,16 @@ header{display:flex;justify-content:space-between;align-items:center;padding:20p
 .library-song-info h4{font-size:0.95rem;font-weight:600;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
 .library-song-info p{font-size:0.8rem;color:#aaa;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
 .library-song-duration{color:#aaa;font-size:0.8rem;margin-right:10px;}
-.library-play-btn{color:#ff4081;font-size:1.5rem;cursor:pointer;opacity:0;transition:opacity 0.3s ease, transform 0.2s ease;}
+.library-play-btn{color:#ffffff;font-size:1.5rem;cursor:pointer;opacity:0;transition:opacity 0.3s ease, transform 0.2s ease;} /* Changed from #ff4081 to #ffffff */
 .library-song-item:hover .library-play-btn{opacity:1;}
-.library-play-btn.playing{opacity:1;color:#ff4081;}
+.library-play-btn.playing{opacity:1;color:#ffffff;} /* Changed from #ff4081 to #ffffff */
 
 /* Search Page Styles */
-.search-page{display:none;padding-top:20px;}
+.search-page{display:none;padding-top:50px;}
 .search-container{position:relative;margin-bottom:30px;}
-.search-box{width:100%;padding:15px 50px 15px 20px;background:rgba(255,255,255,0.1);border:2px solid #ff4081;border-radius:25px;color:#fff;font-size:1rem;transition:all 0.3s ease;}
-.search-box:focus{border-color:#ff79b0;background:rgba(255,255,255,0.15);}
-.search-icon{position:absolute;right:20px;top:50%;transform:translateY(-50%);font-size:1.5rem;color:#ff4081;cursor:pointer;}
+.search-box{width:100%;padding:15px 50px 15px 20px;background:rgba(255,255,255,0.1);border:2px solid #ffffff;border-radius:25px;color:#fff;font-size:1rem;transition:all 0.3s ease;} /* Changed from #ff4081 to #ffffff */
+.search-box:focus{border-color:#ffffff;background:rgba(255,255,255,0.15);} /* Changed from #ff79b0 to #ffffff */
+.search-icon{position:absolute;right:20px;top:50%;transform:translateY(-50%);font-size:1.5rem;color:#ffffff;cursor:pointer;} /* Changed from #ff4081 to #ffffff */
 .search-results{display:none;}
 .search-result-item{display:flex;align-items:center;gap:15px;padding:12px;border-radius:10px;cursor:pointer;transition:background 0.3s ease;margin-bottom:8px;}
 .search-result-item:hover{background:rgba(255,255,255,0.1);}
@@ -158,7 +174,7 @@ header{display:flex;justify-content:space-between;align-items:center;padding:20p
 }
 .history-remove-btn {
     font-size:1.2rem;
-    color:#ff4081;
+    color:#ffffff; /* Changed from #ff4081 to #ffffff */
     cursor:pointer;
     padding:5px; /* Increase click area */
     flex-shrink:0;
@@ -188,27 +204,113 @@ header{display:flex;justify-content:space-between;align-items:center;padding:20p
 }
 
 .bottom-nav a{color:#aaa;text-decoration:none;text-align:center;font-size:1.6rem;transition:color 0.3s ease;cursor:pointer;}
-.bottom-nav a.active{color:#ff4081;}
+.bottom-nav a.active{color:#ffffff;} /* Changed from #ff4081 to #ffffff */
 .bottom-nav a span{display:block;font-size:0.75rem;margin-top:4px;}
 
-/* Now playing bar. We will control its bottom position with JS */
-.now-playing{
-    position:fixed;
-    bottom:70px;
-    left:0;
-    width:100%; 
-    background:rgba(20,20,20,0.95);
-    padding:15px 20px;
-    display:none;
-    align-items:center;
-    justify-content:space-between;
-    border-top:1px solid rgba(255,255,255,0.15);
-    z-index:100;
-    padding-bottom:7px;
-    backdrop-filter:blur(10px);
-    box-shadow:0 -5px 20px rgba(0,0,0,0.3);
-    cursor:pointer;
-    transition:all 0.3s ease;
+/* 🎧 Modern Now Playing Bar */
+.now-playing {
+  position: fixed;
+  bottom: 70px;
+  left: 0;
+  width: 100%;
+  background: linear-gradient(135deg, rgba(30,30,30,0.95), rgba(10,10,10,0.9));
+  border-top: 1px solid rgba(255,255,255,0.12);
+  display: none;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px 18px;
+  z-index: 120;
+  backdrop-filter: blur(15px);
+  box-shadow: 0 -4px 25px rgba(255, 255, 255, 0.15); /* Changed from rgba(255, 64, 129, 0.15) */
+  transition: all 0.3s ease-in-out;
+  cursor: pointer;
+  border-radius: 16px 16px 0 0;
+}
+
+/* Song info look smoother */
+.song-info {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  flex: 1;
+  min-width: 0;
+}
+
+.song-cover {
+  width: 50px;
+  height: 50px;
+  border-radius: 10px;
+  overflow: hidden;
+  flex-shrink: 0;
+  box-shadow: 0 0 8px rgba(255, 255, 255, 0.3); /* Changed from rgba(255, 64, 129, 0.3) */
+  transition: transform 0.3s ease;
+}
+.song-cover:hover {
+  transform: scale(1.05);
+}
+
+.song-details h4 {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #fff;
+}
+.song-details p {
+  font-size: 0.8rem;
+  color: #bbb;
+}
+
+/* Player controls modern look */
+.player-controls {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+}
+.player-controls i {
+  font-size: 1.5rem;
+  color: #fff;
+  opacity: 0.9;
+  transition: all 0.3s ease;
+}
+.player-controls i:hover {
+  color: #ffffff; /* Changed from #ff4081 to #ffffff */
+  transform: scale(1.2);
+}
+.player-controls .play-pause {
+  font-size: 2.2rem;
+  color: #ffffff; /* Changed from #ff4081 to #ffffff */
+}
+
+/* Seek bar with glow */
+.seek-bar-container {
+  position: absolute;
+  top: -3px;
+  left: 0;
+  width: 100%;
+  height: 3px;
+}
+.seek-bar {
+  width: 100%;
+  height: 100%;
+  background: rgba(255,255,255,0.2);
+  position: relative;
+  border-radius: 10px;
+  overflow: hidden;
+}
+.seek-bar-progress {
+  height: 100%;
+  width: 0%;
+  background: linear-gradient(90deg, #ffffff, #ffffff); /* Changed from #ff4081, #ff79b0 to #ffffff */
+  transition: width 0.15s linear;
+}
+.seek-bar-handle {
+  position: absolute;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 10px;
+  height: 10px;
+  background: #fff;
+  border-radius: 50%;
+  box-shadow: 0 0 6px rgba(255,255,255,0.6); /* Changed from rgba(255,64,129,0.6) */
 }
 
 .song-info{display:flex;align-items:center;gap:15px;flex:1;min-width:0;}
@@ -222,45 +324,195 @@ header{display:flex;justify-content:space-between;align-items:center;padding:20p
 .player-controls .play-pause{font-size:2.2rem;}
 .seek-bar-container{position:absolute;top:-3px;left:0;width:100%;height:3px;cursor:pointer;}
 .seek-bar{width:100%;height:100%;background:rgba(255,255,255,0.2);position:relative;}
-.seek-bar-progress{height:100%;background:#ff4081;width:0%;transition:width 0.1s linear;}
+.seek-bar-progress{height:100%;background:#ffffff;width:0%;transition:width 0.1s linear;} /* Changed from #ff4081 to #ffffff */
 .seek-bar-handle{position:absolute;top:50%;transform:translate(-50%,-50%);width:10px;height:10px;background:#fff;border-radius:50%;opacity:0;transition:opacity 0.2s ease;box-shadow:0 0 5px rgba(0,0,0,0.5);}
-.full-player{position:fixed;top:0;left:0;width:100%;height:100%;background:linear-gradient(135deg,#1a1a1a 0%,#000 100%);z-index:1000;display:none;flex-direction:column;overflow:hidden;padding:max(20px,env(safe-area-inset-top)) 20px max(90px,env(safe-area-inset-bottom));}
-.full-player.show{display:flex;animation:fadeIn 0.3s ease;}
-.full-player-header{display:flex;justify-content:space-between;align-items:center;padding:10px 0;margin-bottom:10px;}
-.full-player-header i{font-size:1.5rem;cursor:pointer;color:#fff;}
-.full-player-cover{width:500px;height:500px;max-width:80vw;max-height:80vw;margin:40px auto 30px;border-radius:5%;overflow:hidden;display:flex;align-items:center;justify-content:center;}
-.full-player-cover img{width:100%;height:100%;border-radius:5%;object-fit:contain;}
-.full-player-song-info{text-align:center;margin-bottom:30px;}
-.full-player-song-info h2{font-size:1.8rem;margin-bottom:8px;font-weight:700;}
-.full-player-song-info p{font-size:1.2rem;color:#aaa;}
-.full-player-seek-container{margin-bottom:30px;}
-.full-player-time-info{display:flex;justify-content:space-between;font-size:0.8rem;color:#aaa;margin-bottom:10px;}
-.full-player-seek-bar{width:100%;height:6px;background:rgba(255,255,255,0.2);border-radius:2px;position:relative;cursor:pointer;}
-.full-player-seek-progress{height:100%;background:#ff4081;width:0%;border-radius:2px;transition:width 0.1s linear;position:relative;}
-.full-player-seek-handle{position:absolute;top:50%;transform:translate(-50%,-50%);width:12px;height:12px;background:#fff;border-radius:50%;opacity:0;transition:opacity 0.2s ease;box-shadow:0 0 5px rgba(0,0,0,0.5);}
-.full-player-controls{display:flex;justify-content:center;align-items:center;gap:25px;margin-top:5px;}
-.full-player-controls i{font-size:2rem;cursor:pointer;transition:color 0.3s ease;}
-.full-player-controls .full-player-play-pause{font-size:3.5rem;background:#fff;color:#000;border-radius:50%;padding:10px;box-shadow:0 0 10px rgba(255,255,255,0.3);}
-.full-player-controls .full-player-prev-next{font-size:2.2rem;color:#fff;background:#000;border:2px solid #fff;border-radius:50%;padding:8px;}
-.full-player-controls .bx-shuffle,.full-player-controls .bx-repeat{font-size:1.8rem;color:#aaa;}
-@keyframes fadeIn{from{opacity:0;}to{opacity:1;}}
-@media(max-width:768px){.full-player-cover{width:350px;height:350px;margin:30px auto 20px;}.full-player-song-info h2{font-size:1.5rem;}.full-player-song-info p{font-size:1rem;}}
-@media(max-width:480px){.full-player-cover{width:280px;height:280px;margin:20px auto 15px;}.full-player-controls{gap:20px;}.full-player-controls .full-player-play-pause{font-size:3rem;padding:8px;}.full-player-controls .full-player-prev-next{font-size:1.8rem;padding:6px;}}
+.full-player {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    padding: calc(env(safe-area-inset-top, 20px) + 60px) 20px max(90px, env(safe-area-inset-bottom));
+    background: linear-gradient(135deg,#1a1a1a 0%,#000 100%);
+    z-index: 1000;
+    display: none;
+    flex-direction: column;
+    overflow: hidden;
+    border-radius: 0; /* Full screen app-friendly */
+}
 
+.full-player.show {
+    display: flex;
+    animation: fadeIn 0.3s ease;
+}
+
+.full-player-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 0;
+    margin-bottom: 10px;
+}
+
+.full-player-header i {
+    font-size: 1.5rem;
+    cursor: pointer;
+    color: #fff;
+}
+
+.full-player-cover {
+    width: 500px;
+    height: 500px;
+    max-width: 80vw;
+    max-height: 80vw;
+    margin: 80px auto 30px; /* Niche shift */
+        border-radius: 5%;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.full-player-cover img {
+    width: 100%;
+    height: 100%;
+    border-radius: 5%;
+    object-fit: contain;
+}
+
+.full-player-song-info {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.full-player-song-info h2 {
+    font-size: 1.8rem;
+    margin-bottom: 8px;
+    font-weight: 700;
+}
+
+.full-player-song-info p {
+    font-size: 1.2rem;
+    color: #aaa;
+}
+
+.full-player-seek-container {
+    margin-bottom: 30px;
+}
+
+.full-player-time-info {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.8rem;
+    color: #aaa;
+    margin-bottom: 10px;
+}
+
+.full-player-seek-bar {
+    width: 100%;
+    height: 6px;
+    background: rgba(255,255,255,0.2);
+    border-radius: 2px;
+    position: relative;
+    cursor: pointer;
+}
+
+.full-player-seek-progress {
+    height: 100%;
+    background: #ffffff; /* White seek bar */
+    width: 0%;
+    border-radius: 2px;
+    transition: width 0.1s linear;
+    position: relative;
+}
+
+.full-player-seek-handle {
+    position: absolute;
+    top: 50%;
+    transform: translate(-50%,-50%);
+    width: 12px;
+    height: 12px;
+    background: #fff;
+    border-radius: 50%;
+    opacity: 0;
+    transition: opacity 0.2s ease;
+    box-shadow: 0 0 5px rgba(0,0,0,0.5);
+}
+
+.full-player-controls {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 25px;
+    margin-top: 5px;
+}
+
+.full-player-controls i {
+    font-size: 2rem;
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+.full-player-controls .full-player-play-pause {
+    font-size: 3.5rem;
+    background: #fff;
+    color: #000;
+    border-radius: 50%;
+    padding: 10px;
+    box-shadow: 0 0 10px rgba(255,255,255,0.3);
+}
+
+.full-player-controls .full-player-prev-next {
+    font-size: 2.2rem;
+    color: #fff;
+    background: #000;
+    border: 2px solid #fff;
+    border-radius: 50%;
+    padding: 8px;
+}
+
+.full-player-controls .bx-shuffle,
+.full-player-controls .bx-repeat {
+    font-size: 1.8rem;
+    color: #aaa;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+/* Responsive */
+@media(max-width:768px){
+    .full-player-cover {
+        width: 350px;
+        height: 350px;
+        margin: 60px auto 20px;
+    }
+    .full-player-song-info h2 { font-size: 1.5rem; }
+    .full-player-song-info p { font-size: 1rem; }
+}
+
+@media(max-width:480px){
+    .full-player-cover {
+        width: 280px;
+        height: 280px;
+        margin: 50px auto 15px;
+    }
+    .full-player-controls { gap: 20px; }
+    .full-player-controls .full-player-play-pause { font-size: 3rem; padding: 8px; }
+    .full-player-controls .full-player-prev-next { font-size: 1.8rem; padding: 6px; }
+}
 </style>
 </head>
 <body>
-<header>
+<!-- Header को default hidden रखा है -->
+<header id="mainHeader">
 <div class="greeting">
   <div class="username" id="username">👋🏻Hello Moose army</div>
   <div class="time-greeting" id="time-greeting">Good Morning 🌞</div>
 </div>
-<div class="header-right">
-  <div class="profile-container">
-    <i class='bx bx-bell notification-icon'></i>
-    <div class="profile"><img src="https://i.pravatar.cc/150?img=3" alt="Profile"></div>
-  </div>
-</div>
+
 </header>
 
 <div class="content" id="content">
@@ -441,11 +693,7 @@ let musicData = {
   { "title": "Jaan", "img": "https://i.postimg.cc/6pSmpMP6/s76.jpg", "artist": "Sidhu Moose wala", "audio": "" },
   { "title": "Athra Style", "img": "https://i.postimg.cc/Pxb3KT5D/s77.jpg", "artist": "Sidhu Moose wala", "audio": "" },
   { "title": "Unfuckwithable", "img": "https://i.postimg.cc/3Rrm5TZW/s79.jpg", "artist": "Sidhu Moose wala", "audio": "" },
-  { "title": "Gwacheya Gurbakash", "img": "https://i.postimg.cc/SQr1MS50/s78.jpg", "artist": "Sidhu Moose wala", "audio": "" }
 
-  ],
-    mixesForYou: [
-        { "title": "Mix 1", "img": "https://picsum.photos/200?random=4", "artist": "Artist G", "audio": "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-4.mp3" },
         { "title": "Mix 2", "img": "https://picsum.photos/200?random=5", "artist": "Artist H", "audio": "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-5.mp3" }
     ],
     artists: []
@@ -480,23 +728,30 @@ updateGreeting();
 
 // === PAGE NAVIGATION ===
 function showPage(page) {
+    const header = document.getElementById('mainHeader');
+    
     // Hide all pages
     document.getElementById('homePage').style.display = 'none';
     document.getElementById('searchPage').style.display = 'none';
     document.getElementById('libraryPage').style.display = 'none';
     
-    // Show selected page
+    // Hide header by default
+    header.classList.remove('show-header');
+    
+    // Show selected page and handle header visibility
     if (page === 'home') {
         document.getElementById('homePage').style.display = 'block';
         previousPage = 'home';
+        // Show header only on home page
+        header.classList.add('show-header');
     } else if (page === 'search') {
         document.getElementById('searchPage').style.display = 'block';
         previousPage = 'search';
-        updateSearchHistoryUI(); // Show history when search page is opened
+        // Header hidden on search page
     } else if (page === 'library') {
         document.getElementById('libraryPage').style.display = 'block';
         previousPage = 'library';
-        updateLibraryUI(); // Refresh library when opened
+        // Header hidden on library page
     }
 }
 
@@ -1275,40 +1530,30 @@ function applyLibraryFilter(filter) {
     updateLibraryUI(filteredSongs);
 }
 
-// === BACK BUTTON HANDLING ===
-function handleBackButton() {
-    // 1. If search box is focused, blur it first (Hide keyboard/Show bottom nav)
-    if (document.activeElement === searchBox) {
-        searchBox.blur();
-        return true;
-    }
+// === BACK BUTTON LOGIC WITH NAV ICON UPDATE ===
+document.addEventListener("DOMContentLoaded", () => {
+    // Prevent app from closing directly on first back
+    history.pushState(null, null, location.href);
     
-    // 2. If we're in full player, close it
-    if (fullPlayer.classList.contains('show')) {
-        hideFullPlayer();
-        return true;
-    }
-    
-    // 3. If we're on search page or library page, go back to home
-    if (previousPage === 'search' || previousPage === 'library') {
+    window.onpopstate = () => {
+        // Always go back to Home page
         showPage('home');
-        
-        // ✅ FIX: Update bottom nav active state
-        navLinks.forEach(l => l.classList.remove('active'));
-        document.querySelector('.bottom-nav a[data-page="home"]').classList.add('active');
-        return true;
-    }
-    
-    // 4. If we are on the home page, exit confirmation
-    if (previousPage === 'home') {
-        if (confirm('Do you want to exit the app?')) {
-            window.close();
-            document.body.innerHTML = '<div style="display:flex;justify-content:center;align-items:center;height:100dvh;font-size:1.5rem;">App Closed</div>';
+        updateActiveNavIcon('home');
+        history.pushState(null, null, location.href); // prevent close
+    };
+});
+
+// === Helper: Update active bottom navigation icon ===
+function updateActiveNavIcon(activePage) {
+    const navItems = document.querySelectorAll('.bottom-nav-item'); // all bottom icons
+    navItems.forEach(item => {
+        const page = item.getAttribute('data-page');
+        if (page === activePage) {
+            item.classList.add('active'); // highlight active
+        } else {
+            item.classList.remove('active'); // remove others
         }
-        return true;
-    }
-    
-    return false; // Back gesture not handled
+    });
 }
 
 // Handle browser back button
